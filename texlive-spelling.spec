@@ -6,7 +6,7 @@
 # catalog-version 0.41
 Name:		texlive-spelling
 Version:	0.41
-Release:	6
+Release:	7
 Summary:	Support for spell-checking of LuaTeX documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/luatex/generic/spelling
