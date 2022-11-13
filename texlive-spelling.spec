@@ -1,18 +1,12 @@
-# revision 30715
-# category Package
-# catalog-ctan /macros/luatex/generic/spelling
-# catalog-date 2013-05-27 20:07:27 +0200
-# catalog-license lppl1.3
-# catalog-version 0.41
 Name:		texlive-spelling
-Version:	0.41
-Release:	10
+Version:	30715
+Release:	1
 Summary:	Support for spell-checking of LuaTeX documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/luatex/generic/spelling
 License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/spelling.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/spelling.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/spelling.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/spelling.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -27,12 +21,12 @@ file and to output a list of bad spellings. The package should
 work with most spell-checkers, even dumb, TeX-unaware ones.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -53,7 +47,7 @@ work with most spell-checkers, even dumb, TeX-unaware ones.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
