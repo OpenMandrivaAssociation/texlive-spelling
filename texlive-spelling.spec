@@ -1,6 +1,6 @@
 Name:		texlive-spelling
 Version:	30715
-Release:	1
+Release:	2
 Summary:	Support for spell-checking of LuaTeX documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/luatex/generic/spelling
