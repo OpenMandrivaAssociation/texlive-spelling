@@ -3,7 +3,7 @@ Version:	30715
 Release:	2
 Summary:	Support for spell-checking of LuaTeX documents
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/luatex/generic/spelling
+URL:		https://www.ctan.org/tex-archive/macros/luatex/generic/spelling
 License:	LPPL1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/spelling.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/spelling.doc.r%{version}.tar.xz
