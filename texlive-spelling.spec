@@ -1,56 +1,25 @@
-Name:		texlive-spelling
-Version:	30715
-Release:	2
+%global tl_name spelling
+%global tl_revision 73571
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.41
+Release:	%{tl_revision}.1
 Summary:	Support for spell-checking of LuaTeX documents
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/luatex/generic/spelling
-License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/spelling.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/spelling.doc.r%{version}.tar.xz
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/spelling.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/spelling.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package aids spell-checking of TeX documents compiled with
-the LuaTeX engine. It can give visual feedback in PDF output
-similar to WYSIWYG word processors. The package relies on an
-external spell-checker application to check spelling of a text
-file and to output a list of bad spellings. The package should
-work with most spell-checkers, even dumb, TeX-unaware ones.
+The package aids spell-checking of TeX documents compiled with the
+LuaTeX engine. It can give visual feedback in PDF output similar to
+WYSIWYG word processors. The package relies on an external spell-checker
+application to check spelling of a text file and to output a list of bad
+spellings. The package should work with most spell-checkers, even dumb,
+TeX-unaware ones.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/scripts/spelling/spelling-main.lua
-%{_texmfdistdir}/scripts/spelling/spelling-recurse.lua
-%{_texmfdistdir}/scripts/spelling/spelling-stage-1.lua
-%{_texmfdistdir}/scripts/spelling/spelling-stage-2.lua
-%{_texmfdistdir}/scripts/spelling/spelling-stage-3.lua
-%{_texmfdistdir}/scripts/spelling/spelling-stage-4.lua
-%{_texmfdistdir}/tex/luatex/spelling/spelling.sty
-%doc %{_texmfdistdir}/doc/luatex/spelling/CHANGES
-%doc %{_texmfdistdir}/doc/luatex/spelling/LICENSE
-%doc %{_texmfdistdir}/doc/luatex/spelling/README
-%doc %{_texmfdistdir}/doc/luatex/spelling/spelling-doc-lst-lua.tex
-%doc %{_texmfdistdir}/doc/luatex/spelling/spelling-doc.bad
-%doc %{_texmfdistdir}/doc/luatex/spelling/spelling-doc.pdf
-%doc %{_texmfdistdir}/doc/luatex/spelling/spelling-doc.tex
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar scripts tex doc %{buildroot}%{_texmfdistdir}
